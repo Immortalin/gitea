@@ -84,5 +84,8 @@ func (p *Parser) Render(rawBytes []byte, urlPrefix string, metas map[string]stri
 		log.Error(4, "%s render run command %s %v failed: %v", p.Name(), commands[0], args, err)
 		return []byte("")
 	}
+	x, _ := ioutil.ReadAll(buf)
+
+	log.Info(string(x[:]))
 	return buf.Bytes()
 }
